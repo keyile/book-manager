@@ -8,6 +8,6 @@
 <title>Information</title>
 </head>
 <body>
-Friend, happy to see you!
+This is a book manager system by Zhu Siyuan.
 </body>
 </html>
