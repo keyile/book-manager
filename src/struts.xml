@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="global" />
+
+	<package name="default" extends="struts-default">	
+		<interceptors>
+			<interceptor-stack name="appDefaultStack">
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="appDefaultStack" />
+		<default-action-ref name="index" />
+
+		<global-results>
+			<result name="error">/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+		<action name="query" class="action.QueryAction" method="execute">
+			<result name="success">/query.jsp</result>
+		</action>
+		<action name="detail" class="action.DetailAction" method="execute">
+			<result name="success">/detail.jsp</result>
+		</action>
+		<action name="delete" class="action.DeleteAction" method="execute">
+			<result name="success">/delete.jsp</result>
+		</action>
+		<action name="bookinput" class="action.AddBook" method="input">
+			<result name="input">/bookinput.jsp</result>
+		</action>
+		<action name="book" class="action.AddBook" method="execute">
+			<result name="success">/bookresult.jsp</result>
+			<result name="input">/bookinput.jsp</result>
+		</action>
+		<action name="authorinput">
+			<result>/authorinput.jsp</result>
+		</action>
+		<action name="author" class="action.AddAuthor" method="execute">
+			<result name="success">/authorresult.jsp</result>
+			<result name="input">/authorinput.jsp</result>
+		</action>
+		<action name="updateinput" class="action.UpdateAction" method="input">
+			<result name="input">/updateinput.jsp</result>
+		</action>
+		<action name="update" class="action.UpdateAction" method="execute">
+			<result name="success">/updateresult.jsp</result>
+			<result name="input">/updateinput.jsp</result>
+		</action>
+		<action name="info">
+			<result>/info.jsp</result>
+		</action>
+	</package>
+</struts>
