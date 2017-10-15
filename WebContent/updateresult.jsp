@@ -8,7 +8,7 @@
 <title>Book Changed</title>
 </head>
 <body>
-    <h3>You have changed a book.</h3>
+    <h3>You have changed information of a book.</h3>
 	<p><a href="<s:url action='index' />" >Return to home page</a>.</p>
 	<hr />
 	<s:text name="contact" />
